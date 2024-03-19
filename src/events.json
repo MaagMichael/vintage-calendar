@@ -1,0 +1,113 @@
+  {
+    "events": [
+
+  {
+    "id": 1,
+    "date": "2024-03-04",
+    "time_start": "17:30",
+    "time_end": "18:30",
+    "title": "Lindy Hop 2",
+    "subtitle": "Refresher / Summary",
+    "description":
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis magni tenetur, quia corrupti non eius ea nisi optio esse fugit!",
+    "place": "Studio 1",
+    "level": "ab Level 2+",
+    "status": "running"
+  },
+  {
+    "id": 2,
+    "date": "2024-03-04",
+    "time_start": "17:30",
+    "time_end": "18:30",
+    "title": "Balboa 2",
+    "subtitle": "Aufsteiger",
+    "description":
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis magni tenetur, quia corrupti non eius ea nisi optio esse fugit!",
+    "place": "Studio 2",
+    "level": "Mittelstufe 1",
+    "status": "running"
+  },
+  {
+    "id": 3,
+    "date": "2024-03-04",
+    "time_start": "18:50",
+    "time_end": "19:50",
+    "title": "** Shag 1",
+    "subtitle": "Block C",
+    "description":
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis magni tenetur, quia corrupti non eius ea nisi optio esse fugit!",
+    "place": "Studio 1",
+    "level": "Anfänger",
+    "status": "running"
+  },
+  {
+    "id": 4,
+    "date": "2024-03-04",
+    "time_start": "18:50",
+    "time_end": "19:50",
+    "title": "Balboa 3",
+    "subtitle": "Mittelstufe 2",
+    "description":
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis magni tenetur, quia corrupti non eius ea nisi optio esse fugit!",
+    "place": "Studio 2",
+    "level": "Fortgeschrittene 1",
+    "status": "running"
+  },
+  {
+    "id": 9,
+    "date": "2024-03-05",
+    "time_start": "17:30",
+    "time_end": "18:30",
+    "title": "Boogie Woogie 2",
+    "subtitle": "Mittelstufe",
+    "description":
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis magni tenetur, quia corrupti non eius ea nisi optio esse fugit!",
+    "place": "Studio 1",
+    "level": "",
+    "status": "running"
+  },
+  {
+    "id": 10,
+    "date": "2024-03-05",
+    "time_start": "17:30",
+    "time_end": "18:30",
+    "title": "Easy Dips, Tricks, Lifts & Drops",
+    "subtitle": "",
+    "description":
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis magni tenetur, quia corrupti non eius ea nisi optio esse fugit!",
+    "place": "Studio 2",
+    "level": "ab Aufsteiger",
+    "status": "running"
+  },
+  {
+    "id": 11,
+    "date": "2024-03-05",
+    "time_start": "18:50",
+    "time_end": "19:50",
+    "title": "Lindy Hop 1",
+    "subtitle": "Block B",
+    "description":
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis magni tenetur, quia corrupti non eius ea nisi optio esse fugit!",
+    "place": "Studio 1",
+    "level": "Anfänger",
+    "status": "running"
+  },
+  {
+    "id": 12,
+    "date": "2024-03-05",
+    "time_start": "18:50",
+    "time_end": "19:50",
+    "title": "Lindy Hop 2",
+    "subtitle": "Block C",
+    "description":
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis magni tenetur, quia corrupti non eius ea nisi optio esse fugit!",
+    "place": "Studio 2",
+    "level": "Aufsteiger",
+    "status": "running"
+  }
+
+
+
+
+  
+]}
