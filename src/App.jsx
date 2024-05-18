@@ -37,7 +37,7 @@ function App() {
       let tempEvents = selectedFilters.map((selectedDance) => {
         // let temp = events.filter((event) => event.title === selectedDance);
         let temp = events.filter((event) =>
-          event.title.includes(selectedDance)
+          event.title_class.includes(selectedDance)
         );
         return temp;
       });
