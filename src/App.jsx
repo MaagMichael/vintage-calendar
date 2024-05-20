@@ -5,6 +5,7 @@ import { Select } from "./Select";
 import "./App.css";
 
 import { events } from "./events.json";
+import Experiment from "./Experiment";
 
 function App() {
   // set states for selected filters
@@ -12,7 +13,13 @@ function App() {
   // set states for filtered items to render
   const [filteredItems, setFilteredItems] = useState(events);
   // list of available filter options
-  let filterDance = ["Lindy Hop", "Balboa", "Shag", "Boogie Woogie", "Easy Dips"];
+  let filterDance = [
+    "Lindy Hop",
+    "Balboa",
+    "Shag",
+    "Boogie Woogie",
+    "Easy Dips",
+  ];
   let filterLevel = ["1", "2", "3", "4"];
 
   //   when a filter button is clicked, highlight button (toogle) and update list of selected filters
@@ -41,8 +48,10 @@ function App() {
       // use temporary array to store filtered items by looping through list of selected filters
       let tempEvents = selectedFilters.map((item) => {
         // filter events by selected filters
-        let temp = events.filter((event) =>
-          event.title_class.includes(item) || event.level_number.includes(item)
+        let temp = events.filter(
+          (event) =>
+            // event.title_class.includes(item) || event.level_number.includes(item)
+            event.title_class.includes(item) && event.level_number.includes(item)
         );
         return temp;
       });
@@ -56,6 +65,10 @@ function App() {
 
   return (
     <>
+      <Experiment />
+      <p>
+        ##############################################################################################################
+      </p>
       <h1>Demo Kalender mit Tanzkursen und Multi-Filter</h1>
       <div>
         <Select />
