@@ -96,45 +96,53 @@ const Experiment = () => {
   return (
     <div>
       {/* rendering filter buttons with values from extraction above incl. reset button  */}
-      <h2>Filter Items</h2>
-      {uniqueButtonItems.map((item, index) => (
-        <button
-          key={index}
-          className={`button ${filterItems?.includes(item) ? "active" : ""}`}
-          onClick={() => handleFilterItems(item)}
-        >
-          {item}
-        </button>
-      ))}
-      <button onClick={() => setFilterItems([])}>Reset</button>
+      <div className="flex-container">
+        <h2>Filter Items</h2>
+        {uniqueButtonItems.map((item, index) => (
+          <button
+            key={index}
+            className={`${filterItems?.includes(item) ? "active" : ""}`}
+            onClick={() => handleFilterItems(item)}
+          >
+            {item}
+          </button>
+        ))}
+        <button onClick={() => setFilterItems([])}>Reset</button>
+      </div>
 
-      <h2>Filter Levels</h2>
-      {uniqueButtonLevels.map((item, index) => (
-        <button
-          key={index}
-          className={`button ${filterLevels?.includes(item) ? "active" : ""}`}
-          onClick={() => handleFilterLevels(item)}
-        >
-          {item}
-        </button>
-      ))}
-      <button onClick={() => setFilterLevels([])}>Reset</button>
+      <div className="flex-container">
+        <h2>Filter Levels</h2>
+        {uniqueButtonLevels.map((item, index) => (
+          <button
+            key={index}
+            className={`${filterLevels?.includes(item) ? "active" : ""}`}
+            onClick={() => handleFilterLevels(item)}
+          >
+            {item}
+          </button>
+        ))}
+        <button onClick={() => setFilterLevels([])}>Reset</button>
+      </div>
 
-      <h2>Filter Status</h2>
-      {uniqueButtonStatus.map((item, index) => (
-        <button
-          key={index}
-          className={`button ${filterStatus?.includes(item) ? "active" : ""}`}
-          onClick={() => handleFilterStatus(item)}
-        >
-          {item}
-        </button>
-      ))}
-      <button onClick={() => setFilterStatus([])}>Reset</button>
+      <div className="flex-container">
+        <h2>Filter Status</h2>
+        {uniqueButtonStatus.map((item, index) => (
+          <button
+            key={index}
+            className={`${filterStatus?.includes(item) ? "active" : ""}`}
+            onClick={() => handleFilterStatus(item)}
+          >
+            {item}
+          </button>
+        ))}
+        <button onClick={() => setFilterStatus([])}>Reset</button>
+      </div>
 
-      {/* Reset all filters in one go */}
-      <h2>All Filter Reset</h2>
-      <button onClick={() => resetFilters()}>Reset all</button>
+      <div className="flex-container">
+        {/* Reset all filters in one go */}
+        <h2>All Filter Reset</h2>
+        <button onClick={() => resetFilters()}>Reset all</button>
+      </div>
 
       {/* rendering filtered datasets */}
       {filteredData && filteredData.length > 0 ? (
@@ -143,7 +151,6 @@ const Experiment = () => {
             <p>
               Item: {data.Item} on Level: {data.level} in Status: {data.status}
             </p>
-            {/* <hr /> */}
           </div>
         ))
       ) : (
