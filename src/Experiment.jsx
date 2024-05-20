@@ -20,6 +20,22 @@ const Experiment = () => {
   const [filterStatus, setFilterStatus] = useState([]);
   const [filteredData, setFilteredData] = useState(datasets);
 
+  // read out the datatable colomn and extract the unique values and sort them
+  const uniqueButtonItems = [
+    ...new Set(datasets.map((item) => item.Item)),
+  ].sort();
+  console.log(uniqueButtonItems);
+
+  const uniqueButtonLevels = [
+    ...new Set(datasets.map((item) => item.level)),
+  ].sort();
+  console.log(uniqueButtonLevels);
+
+  const uniqueButtonStatus = [
+    ...new Set(datasets.map((item) => item.status)),
+  ].sort();
+  console.log(uniqueButtonStatus);
+
   // add and remove filter values by button click in useStates along user inputs
   const handleFilterItems = (item) => {
     // check if filter is already selected, remove it from selected filters
@@ -79,40 +95,63 @@ const Experiment = () => {
 
   return (
     <div>
-      {/* rendering filter buttons and reset button  */}
+      {/* rendering filter buttons with values from extraction above incl. reset button  */}
       <h2>Filter Items</h2>
-      <button className={`button ${filterItems?.includes("A") ? "active" : ""}`} onClick={() => handleFilterItems("A")}>A</button>
-      <button className={`button ${filterItems?.includes("B") ? "active" : ""}`} onClick={() => handleFilterItems("B")}>B</button>
-      <button className={`button ${filterItems?.includes("C") ? "active" : ""}`} onClick={() => handleFilterItems("C")}>C</button>
+      {uniqueButtonItems.map((item, index) => (
+        <button
+          key={index}
+          className={`button ${filterItems?.includes(item) ? "active" : ""}`}
+          onClick={() => handleFilterItems(item)}
+        >
+          {item}
+        </button>
+      ))}
       <button onClick={() => setFilterItems([])}>Reset</button>
 
       <h2>Filter Levels</h2>
-      <button className={`button ${filterLevels?.includes(1) ? "active" : ""}`} onClick={() => handleFilterLevels(1)}>1</button>
-      <button className={`button ${filterLevels?.includes(2) ? "active" : ""}`} onClick={() => handleFilterLevels(2)}>2</button>
-      <button className={`button ${filterLevels?.includes(3) ? "active" : ""}`} onClick={() => handleFilterLevels(3)}>3</button>
-      <button className={`button ${filterLevels?.includes(4) ? "active" : ""}`} onClick={() => handleFilterLevels(4)}>4</button>
+      {uniqueButtonLevels.map((item, index) => (
+        <button
+          key={index}
+          className={`button ${filterLevels?.includes(item) ? "active" : ""}`}
+          onClick={() => handleFilterLevels(item)}
+        >
+          {item}
+        </button>
+      ))}
       <button onClick={() => setFilterLevels([])}>Reset</button>
 
       <h2>Filter Status</h2>
-      <button className={`button ${filterStatus?.includes("early") ? "active" : ""}`} onClick={() => handleFilterStatus("early")}>early</button>
-      <button className={`button ${filterStatus?.includes("noon") ? "active" : ""}`} onClick={() => handleFilterStatus("noon")}>noon</button>
-      <button className={`button ${filterStatus?.includes("late") ? "active" : ""}`} onClick={() => handleFilterStatus("late")}>late</button>
+      {uniqueButtonStatus.map((item, index) => (
+        <button
+          key={index}
+          className={`button ${filterStatus?.includes(item) ? "active" : ""}`}
+          onClick={() => handleFilterStatus(item)}
+        >
+          {item}
+        </button>
+      ))}
       <button onClick={() => setFilterStatus([])}>Reset</button>
 
+      {/* Reset all filters in one go */}
       <h2>All Filter Reset</h2>
       <button onClick={() => resetFilters()}>Reset all</button>
 
       {/* rendering filtered datasets */}
-      {filteredData.map((data) => (
-        <div key={data.id}>
-          <p>
-            Item: {data.Item} on Level: {data.level} in Status: {data.status}
-          </p>
-          {/* <hr /> */}
-        </div>
-      ))}
+      {filteredData && filteredData.length > 0 ? (
+        filteredData.map((data) => (
+          <div key={data.id}>
+            <p>
+              Item: {data.Item} on Level: {data.level} in Status: {data.status}
+            </p>
+            {/* <hr /> */}
+          </div>
+        ))
+      ) : (
+        <h1>No data available</h1>
+      )}
+
       {/* rendering filtered datasets as JSON*/}
-      <h2>Filtered Data</h2>
+      <h2>Filtered Data as Json</h2>
       <pre>{JSON.stringify(filteredData, null, 2)}</pre>
     </div>
   );
