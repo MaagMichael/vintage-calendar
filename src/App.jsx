@@ -51,7 +51,8 @@ function App() {
         let temp = events.filter(
           (event) =>
             // event.title_class.includes(item) || event.level_number.includes(item)
-            event.title_class.includes(item) && event.level_number.includes(item)
+            event.title_class.includes(item) &&
+            event.level_number.includes(item)
         );
         return temp;
       });
@@ -94,9 +95,7 @@ function App() {
           onClick={() => handleFilterButtonClick(level)}
           key={idx}
           // add active class if selected filters includes the category button
-          className={`button ${
-            selectedFilters?.includes(level) ? "active" : ""
-          }`}
+          className={`${selectedFilters?.includes(level) ? "active" : ""}`}
         >
           {level}
         </button>
