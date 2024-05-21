@@ -21,7 +21,6 @@ import {
 export default function Calendar() {
   const [currentDate, setCurrentDate] = useState(new Date());
 
-  //   const today = new Date();
   const startOfWeekDate = startOfWeek(currentDate, { weekStartsOn: 1 }); // 1 = Monday
   const formattedDate = format(currentDate, "EEEE - dd.MM.yyyy");
   const formattedstartOfWeekDate = format(startOfWeekDate, "EEEE - dd.MM.yyyy");
@@ -31,26 +30,34 @@ export default function Calendar() {
     // weekDates.push(add(startOfWeekDate, { days: i }));
     weekDates.push(addDays(startOfWeekDate, i));
   }
-  console.log(weekDates);
+//   console.log(weekDates);
 
   const [selected, setSelected] = useState("");
   function handleChange(event) {
     setSelected(event.target.value);
     console.log(event.target.value);
   }
-
+  // generate 4 weeks from today's week start date
   const weeks = [];
-  for (let w=0; w<4; w++) {
+  let currentWeekStart = startOfWeekDate;
 
-    const arraystart = startOfWeekDate;
+  for (let w = 1; w < 5; w++) {    
     const daysarray = [];
-    for (let d=0; d<7; d++) {
-        daysarray.push(addDays(arraystart, d));
-    }
 
-    weeks.push({w : daysarray});
+    for (let d = 0; d < 7; d++) {
+      daysarray.push(addDays(currentWeekStart, d));
+    }
+    const selector =
+      "< " +
+      format(daysarray[0], "EE-dd.MM").toString() +
+      " bis " +
+      format(daysarray[6], "EE-dd.MM.yyyy").toString() +
+      " >";
+
+    weeks.push({ week: w, selector: selector, days: daysarray });
+    currentWeekStart = addDays(currentWeekStart, 7*w);
   }
-  
+
   console.log(weeks);
 
   return (
@@ -75,8 +82,9 @@ export default function Calendar() {
         ))}
       </select>
 
+      <p>Actual Week</p>
       <pre>{JSON.stringify(weekDates, null, 2)}</pre>
-      <p>Weeks</p>
+      <p>More Weeks</p>
       <pre>{JSON.stringify(weeks, null, 2)}</pre>
     </div>
   );

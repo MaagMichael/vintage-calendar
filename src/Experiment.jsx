@@ -24,17 +24,17 @@ const Experiment = () => {
   const uniqueButtonItems = [
     ...new Set(datasets.map((item) => item.Item)),
   ].sort();
-  console.log(uniqueButtonItems);
+  // console.log(uniqueButtonItems);
 
   const uniqueButtonLevels = [
     ...new Set(datasets.map((item) => item.level)),
   ].sort();
-  console.log(uniqueButtonLevels);
+  // console.log(uniqueButtonLevels);
 
   const uniqueButtonStatus = [
     ...new Set(datasets.map((item) => item.status)),
   ].sort();
-  console.log(uniqueButtonStatus);
+  // console.log(uniqueButtonStatus);
 
   // add and remove filter values by button click in useStates along user inputs
   const handleFilterItems = (item) => {
