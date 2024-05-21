@@ -30,7 +30,7 @@ export default function Calendar() {
     // weekDates.push(add(startOfWeekDate, { days: i }));
     weekDates.push(addDays(startOfWeekDate, i));
   }
-//   console.log(weekDates);
+  //   console.log(weekDates);
 
   const [selected, setSelected] = useState("");
   function handleChange(event) {
@@ -40,13 +40,13 @@ export default function Calendar() {
   // generate 4 weeks from today's week start date
   const weeks = [];
   let currentWeekStart = startOfWeekDate;
-
-  for (let w = 1; w < 5; w++) {    
+  for (let w = 1; w < 5; w++) {
     const daysarray = [];
 
     for (let d = 0; d < 7; d++) {
       daysarray.push(addDays(currentWeekStart, d));
     }
+    // console.log("days of week ", daysarray);
     const selector =
       "< " +
       format(daysarray[0], "EE-dd.MM").toString() +
@@ -55,10 +55,11 @@ export default function Calendar() {
       " >";
 
     weeks.push({ week: w, selector: selector, days: daysarray });
-    currentWeekStart = addDays(currentWeekStart, 7*w);
-  }
+    currentWeekStart = addDays(currentWeekStart, 7);
+}
 
-  console.log(weeks);
+console.log("sets of weeks ", weeks);
+  //   console.log(weeks);
 
   return (
     <div>
@@ -82,10 +83,22 @@ export default function Calendar() {
         ))}
       </select>
 
-      <p>Actual Week</p>
-      <pre>{JSON.stringify(weekDates, null, 2)}</pre>
-      <p>More Weeks</p>
-      <pre>{JSON.stringify(weeks, null, 2)}</pre>
+      <h3>Actual Week from today</h3>
+      {/* <pre>{JSON.stringify(weekDates, null, 2)}</pre> */}
+      {weekDates.map((date, index) => (
+        <p key={index}>{format(date, "EE - dd.MM.yyyy")}</p>
+      ))}
+      <h3>All possible Weeks</h3>
+      {/* <pre>{JSON.stringify(weeks, null, 2)}</pre> */}
+      {weeks.map((set, index) => (
+        <div key={index}>
+          <p>Week number {set.week}</p>
+          {set.days.map((date, index) => (
+            <p key={index}>{format(date, "EE - dd.MM.yyyy")}</p>
+          ))}
+          <p>by selector {set.selector}</p>
+        </div>
+      ))}
     </div>
   );
 }
