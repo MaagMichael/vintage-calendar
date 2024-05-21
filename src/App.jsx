@@ -6,6 +6,7 @@ import "./App.css";
 
 import { events } from "./events.json";
 import Experiment from "./Experiment";
+import Calendar from "./Calendar";
 
 function App() {
   // set states for selected filters
@@ -66,6 +67,10 @@ function App() {
 
   return (
     <>
+      <Calendar />
+      <p>
+        ##############################################################################################################
+      </p>
       <Experiment />
       <p>
         ##############################################################################################################
