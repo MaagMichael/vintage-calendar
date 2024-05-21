@@ -56,9 +56,9 @@ export default function Calendar() {
 
     weeks.push({ week: w, selector: selector, days: daysarray });
     currentWeekStart = addDays(currentWeekStart, 7);
-}
+  }
 
-console.log("sets of weeks ", weeks);
+  console.log("sets of weeks ", weeks);
   //   console.log(weeks);
 
   return (
@@ -88,7 +88,16 @@ console.log("sets of weeks ", weeks);
       {weekDates.map((date, index) => (
         <p key={index}>{format(date, "EE - dd.MM.yyyy")}</p>
       ))}
+
       <h3>All possible Weeks</h3>
+      <select value={selected} onChange={handleChange}>
+        {weeks.map((set, index) => (
+          <option key={index} value={set.selector}>
+            {set.selector}
+          </option>
+        ))}
+      </select>
+
       {/* <pre>{JSON.stringify(weeks, null, 2)}</pre> */}
       {weeks.map((set, index) => (
         <div key={index}>
